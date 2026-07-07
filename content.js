@@ -35,7 +35,7 @@ window.CONTENT = {
     tagline: "Ph.D. Student, Department of CSE, IIIT Delhi",
     location: "New Delhi, India",
     affiliation: "IIIT Delhi",
-    advisorLine: "Supervisor: Dr. Rinku Shah",
+    advisorLine: "Supervisor : Dr. Rinku Shah",
   },
 
   /* ---------- Contact / socials ----------
@@ -69,7 +69,6 @@ window.CONTENT = {
 
   /* ---------- Research Interests (cards) ---------- */
   research: {
-   
     items: [
       { icon: "cpu", label: "Computer Systems & Applications" },
       { icon: "layers", label: "Systems For ML" },
