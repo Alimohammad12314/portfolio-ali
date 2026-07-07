@@ -35,7 +35,7 @@ window.CONTENT = {
     tagline: "Ph.D. Student, Department of CSE, IIIT Delhi",
     location: "New Delhi, India",
     affiliation: "IIIT Delhi",
-    advisorLine: "Advised by Dr. Rinku Shah",
+    advisorLine: "Supervisor: Dr. Rinku Shah",
   },
 
   /* ---------- Contact / socials ----------
@@ -62,7 +62,7 @@ window.CONTENT = {
   about: {
     greeting: "Welcome to my homepage",
     paragraphs: [
-      "I'm <strong>Mohammad Ali</strong>, a Ph.D. student in the <strong>Department of Computer Science &amp; Engineering</strong> at <strong>IIIT Delhi</strong>, advised by <a href='https://faculty.iiitd.ac.in/~rinku/' target='_blank' rel='noopener'>Dr. Rinku Shah</a> at the <strong>Networks, Edge, and SysTems (NESt) Lab</strong>. My research sits at the intersection of <em>computer systems</em> and <em>machine learning</em>.",
+      "I'm <strong>Mohammad Ali</strong>, a Ph.D. student in the <strong>Department of Computer Science &amp; Engineering</strong> at <strong>IIIT Delhi</strong>, under the guidance of <a href='https://faculty.iiitd.ac.in/~rinku/' target='_blank' rel='noopener'>Dr. Rinku Shah (Supervisor)</a> at the <strong>Networks, Edge, and SysTems (NESt) Lab</strong>. My research sits at the intersection of <em>computer systems</em> and <em>machine learning</em>.",
       "Prior to joining IIIT Delhi, I completed my B.Tech in Computer Engineering at the <strong>Zakir Husain College of Engineering &amp; Technology, AMU</strong>. During my undergraduate years, I collaborated on projects spanning explainable AI, multi-task learning, biomedical ML, and sports analytics — experiences that shaped my approach to research and my curiosity for turning ideas into working systems.",
     ],
   },
@@ -86,7 +86,7 @@ window.CONTENT = {
       degree: "Ph.D. in Computer Science & Engineering",
       institution: "IIIT Delhi",
       period: "2026 – Present",
-      note: "Advised by Dr. Rinku Shah,  Networks, Edge, and SysTems (NESt) Lab ",
+      note: "Dr. Rinku Shah(Supervisor),  Networks, Edge, and SysTems (NESt) Lab ",
     },
     {
       degree: "B.Tech. in Computer Engineering",
