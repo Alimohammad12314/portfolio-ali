@@ -44,7 +44,7 @@ window.CONTENT = {
     {
       icon: "mail",
       label: "Email",
-      href: "mailto:mohammadali200314@gmail.com",
+      href: "mailto:mohammada@iiitd.ac.in",
     },
     {
       icon: "github",
@@ -62,7 +62,7 @@ window.CONTENT = {
   about: {
     greeting: "Welcome to my homepage",
     paragraphs: [
-      "I'm <strong>Mohammad Ali</strong>, a Ph.D. student in the <strong>Department of Computer Science &amp; Engineering</strong> at <strong>IIIT Delhi</strong>, under the guidance of <a href='https://faculty.iiitd.ac.in/~rinku/' target='_blank' rel='noopener'>Dr. Rinku Shah (Supervisor)</a> at the <strong>Networks, Edge, and SysTems (NESt) Lab</strong>. My research sits at the intersection of <em>computer systems</em> and <em>machine learning</em>.",
+      "I'm <strong>Mohammad Ali</strong>, a Ph.D. student in the <strong>Department of Computer Science &amp; Engineering</strong> at <strong>IIIT Delhi</strong>, under the guidance of <a href='https://faculty.iiitd.ac.in/~rinku/' target='_blank' rel='noopener'>Dr. Rinku Shah (Supervisor)</a> at the <a href='https://nest-iiitd.github.io/' target='_blank' rel='noopener'> <strong>Networks, Edge, and SysTems (NESt) Lab</strong>.</a> My research sits at the intersection of <em>computer systems</em> and <em>machine learning</em>.",
       "Prior to joining IIIT Delhi, I completed my B.Tech in Computer Engineering at the <strong>Zakir Husain College of Engineering &amp; Technology, AMU</strong>. During my undergraduate years, I collaborated on projects spanning explainable AI, multi-task learning, biomedical ML, and sports analytics — experiences that shaped my approach to research and my curiosity for turning ideas into working systems.",
     ],
   },
@@ -208,6 +208,6 @@ window.CONTENT = {
   /* ---------- Footer ---------- */
   footer: {
     text: "© 2026 Mohammad Ali · Built with care, hosted on GitHub Pages",
-    contactEmail: "mohammadali200314@gmail.com",
+    contactEmail: "mohammada@iiitd.ac.in",
   },
 };
