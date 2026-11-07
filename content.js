@@ -81,8 +81,6 @@ window.CONTENT = {
     stats: [
       { value: 1, suffix: "", label: "IEEE Publication" },
       { value: 1, suffix: "", label: "Best Paper Award" },
-      { value: 9.03, suffix: "", label: "B.Tech CGPA", decimals: 2 },
-      { value: 50, suffix: "+", label: "Students Mentored" },
     ],
   },
 
