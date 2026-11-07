@@ -36,6 +36,10 @@ window.CONTENT = {
     location: "New Delhi, India",
     affiliation: "IIIT Delhi",
     advisorLine: "Supervisor : Dr. Rinku Shah",
+    // Highlighted affiliation cards in the hero
+    supervisor: { name: "Dr. Rinku Shah", role: "Ph.D. Supervisor", full: "NESt Lab, IIIT Delhi", url: "https://faculty.iiitd.ac.in/~rinku/" },
+    lab: { name: "NESt Lab", full: "Networks, Edge & SysTems Lab", url: "https://nest-iiitd.github.io/" },
+    institute: { name: "IIIT Delhi", full: "Department of CSE", url: "https://www.iiitd.ac.in/" },
   },
 
   /* ---------- Contact / socials ----------
@@ -78,10 +82,8 @@ window.CONTENT = {
       "Systems for ML",
       "Programmable Networks",
     ],
-    stats: [
-      { value: 1, suffix: "", label: "IEEE Publication" },
-      { value: 1, suffix: "", label: "Best Paper Award" },
-    ],
+    // Optional number boxes under the hero, e.g. { value: 1, label: "IEEE Publication" }
+    stats: [],
   },
 
   /* ---------- Research Domains ----------

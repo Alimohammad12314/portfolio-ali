@@ -193,7 +193,21 @@
     .typeline .p { color: var(--lime); }
     .typeline .t { color: var(--cyan); }
     .typeline .c { display: inline-block; width: 10px; height: 1.1em; background: var(--cyan); vertical-align: -3px; margin-left: 2px; animation: blink 1s steps(1) infinite; }
-    .hero-blurb { color: var(--ink-2); font-size: 16.5px; max-width: 560px; margin: 22px 0 30px; }
+    .hero-blurb { color: var(--ink-2); font-size: 16.5px; max-width: 560px; margin: 18px 0 30px; }
+    .affil { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; max-width: 640px; }
+    .affil a {
+      position: relative; display: flex; flex-direction: column; gap: 2px; padding: 14px 16px 14px 18px; overflow: hidden;
+      border-radius: 14px; border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--c) 16%, transparent), var(--panel) 70%);
+      text-decoration: none !important; transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .affil a::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--c); box-shadow: 0 0 12px var(--c); }
+    .affil a:hover { transform: translateY(-3px); border-color: var(--c); box-shadow: 0 14px 34px -14px var(--c); }
+    .affil .role { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--c); display: flex; align-items: center; gap: 6px; }
+    .affil .role svg { width: 13px; height: 13px; }
+    .affil .name { font-family: var(--display); font-size: 18px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+    .affil .full { font-size: 12px; color: var(--muted); line-height: 1.35; }
+    @media (max-width: 640px) { .affil { grid-template-columns: 1fr; } }
     .hero-blurb b { color: var(--ink); font-weight: 600; }
     .btns { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
@@ -408,9 +422,10 @@
         <span class="status-pill reveal"><span class="dot"></span><span id="heroKicker"></span></span>
         <h1 class="reveal"><span id="heroFirst">Mohammad</span><br /><span class="grad" id="heroLast">Ali</span></h1>
         <div class="typeline reveal" aria-live="polite"><span class="p">$</span> research --focus <span class="t" id="typed"></span><span class="c"></span></div>
+        <div class="affil reveal" id="affil"></div>
         <p class="hero-blurb reveal" id="heroBlurb"></p>
         <div class="btns reveal" id="heroBtns"></div>
-        <div class="stats reveal" id="stats"></div>
+        <div class="stats reveal" id="stats" hidden></div>
       </div>
       <div class="hero-right reveal">
         <div class="orbit">
@@ -520,7 +535,16 @@
     $("heroLast").textContent = nameParts.length > 1 ? nameParts.at(-1) : "";
     $("heroKicker").textContent = H.kicker || C.profile.tagline;
     const domains = (C.research.items || []).filter(r => r.tag).map(r => r.label);
-    $("heroBlurb").innerHTML = `Ph.D. student in CSE at <b>${C.profile.affiliation}</b>, ${"advised by " + C.profile.advisorLine.split(":").pop().trim()}. I build the systems underneath AI: ${domains.map(d => `<b>${d}</b>`).join(", ").replace(/, ([^,]*)$/, " and $1")}.`;
+    const P = C.profile;
+    const sup = P.supervisor || { name: P.advisorLine.split(":").pop().trim(), role: "Ph.D. Supervisor" };
+    const affil = [
+      [sup, "user-round", "--violet", sup.role || "Supervisor"],
+      [P.lab, "network", "--cyan", "Lab"],
+      [P.institute, "landmark", "--lime", "Institute"],
+    ].filter(([x]) => x && x.name);
+    $("affil").innerHTML = affil.map(([x, icon, col, label]) =>
+      `<a href="${x.url || "#"}" target="_blank" rel="noopener" style="--c:var(${col})"><span class="role">${ic(icon)}${label}</span><span class="name">${x.name}</span>${x.full ? `<span class="full">${x.full}</span>` : ""}</a>`).join("");
+    $("heroBlurb").innerHTML = `Ph.D. student in CSE at <a href="${(P.institute || {}).url || "#"}" target="_blank" rel="noopener"><b>${P.affiliation}</b></a>, working with <a href="${sup.url || "#"}" target="_blank" rel="noopener"><b>${sup.name}</b></a> at the <a href="${(P.lab || {}).url || "#"}" target="_blank" rel="noopener"><b>${(P.lab || {}).full || "NESt Lab"}</b></a>. I build the systems underneath AI: ${domains.map(d => `<b>${d}</b>`).join(", ").replace(/, ([^,]*)$/, " and $1")}.`;
 
     const btns = $("heroBtns");
     if (C.cvUrl) btns.appendChild(el("a", "btn primary", `${ic("file-text")}Download CV`)).setAttribute("href", C.cvUrl);
@@ -529,6 +553,7 @@
     const mail = C.contacts.find(c => c.icon === "mail");
     if (mail) btns.appendChild(el("a", "btn", `${ic("mail")}Get in touch`)).setAttribute("href", mail.href);
 
+    if ((H.stats || []).length) $("stats").hidden = false;
     (H.stats || []).forEach(s => {
       const d = el("div", "panel spot stat", `<div class="v" data-to="${s.value}" data-dec="${s.decimals || 0}" data-suf="${s.suffix || ""}">0</div><div class="l">${s.label}</div>`);
       $("stats").appendChild(d);
@@ -556,7 +581,7 @@
       kv("name", C.profile.name) +
       kv("role", "PhD Student, CSE") +
       kv("lab", `<a href="https://nest-iiitd.github.io/" target="_blank" rel="noopener">NESt Lab</a> @ ${C.profile.affiliation}`) +
-      kv("advisor", C.profile.advisorLine.split(":").pop().trim()) +
+      kv("advisor", C.profile.supervisor ? `<a href="${C.profile.supervisor.url}" target="_blank" rel="noopener">${C.profile.supervisor.name}</a>` : C.profile.advisorLine.split(":").pop().trim()) +
       kv("location", C.profile.location) +
       kv("status", `<span style="color:var(--lime)">● open to collaborate</span>`) +
       `<div class="contacts">${C.contacts.map(c => `<a href="${c.href}" target="_blank" rel="noopener" aria-label="${c.label}" title="${c.label}">${ic(c.icon)}</a>`).join("")}</div>`;
