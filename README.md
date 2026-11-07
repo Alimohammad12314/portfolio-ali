@@ -39,11 +39,16 @@ Tips:
 4. In the repo → Settings → Pages → Source: `main` branch, `/root` — save.
 5. Your site is live at `https://yourusername.github.io/` in ~1 minute.
 
-## Design
-- Fonts: Cormorant Garamond (serif) + Inter (sans) + JetBrains Mono
-- Palette: sky blue accent on a soft pale-blue background, glass cards with backdrop blur
-- Fully responsive: sidebar sticks on desktop, stacks under a slide-in drawer on mobile
-- Prefers-reduced-motion friendly
+## Design — "control plane" theme
+- Dark-first (light mode via the sun/moon toggle), fonts: Space Grotesk + Inter + JetBrains Mono
+- Colour language: **violet = agents**, **cyan = networks**, **lime = GPUs**
+- Live network-fabric background (nodes + packets that react to the cursor)
+- Typing terminal hero cycling through `hero.roles`, animated stat counters, orbiting avatar
+- Each research card has its own live canvas animation, chosen by `research.items[].viz`:
+  `agents` (LLM ↔ tools loop), `network` (match-action pipeline), `gpu` (SM occupancy heatmap),
+  `mlsys` (forward pass), `security` (packet filter), `xai` (feature attribution)
+- Add `tag: "PRIMARY"` to a research item to give it an animated border and include it in the hero blurb
+- Scroll reveals, cursor spotlight, 3D card tilt, packet-flow timelines; respects prefers-reduced-motion
 
 ---
 

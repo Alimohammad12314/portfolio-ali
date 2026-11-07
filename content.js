@@ -18,8 +18,8 @@ window.CONTENT = {
   /* ---------- Top-nav (in-page anchors) ---------- */
   nav: [
     { label: "About", href: "#about" },
-    { label: "Publications", href: "#publications" },
     { label: "Research", href: "#research" },
+    { label: "Publications", href: "#publications" },
     { label: "Projects", href: "#projects" },
     { label: "Leadership", href: "#leadership" },
     // "CV" is added automatically from cvUrl above
@@ -62,20 +62,76 @@ window.CONTENT = {
   about: {
     greeting: "Welcome to my homepage",
     paragraphs: [
-      "I'm <strong>Mohammad Ali</strong>, a Ph.D. student in the <strong>Department of Computer Science &amp; Engineering</strong> at <strong>IIIT Delhi</strong>, under the guidance of <a href='https://faculty.iiitd.ac.in/~rinku/' target='_blank' rel='noopener'>Dr. Rinku Shah (Supervisor)</a> at the <a href='https://nest-iiitd.github.io/' target='_blank' rel='noopener'> <strong>Networks, Edge, and SysTems (NESt) Lab</strong>.</a> My research sits at the intersection of <em>computer systems</em> and <em>machine learning</em>.",
+      "I'm <strong>Mohammad Ali</strong>, a Ph.D. student in the <strong>Department of Computer Science &amp; Engineering</strong> at <strong>IIIT Delhi</strong>, under the guidance of <a href='https://faculty.iiitd.ac.in/~rinku/' target='_blank' rel='noopener'>Dr. Rinku Shah (Supervisor)</a> at the <a href='https://nest-iiitd.github.io/' target='_blank' rel='noopener'> <strong>Networks, Edge, and SysTems (NESt) Lab</strong>.</a> My research sits at the intersection of <em>agentic systems</em>, <em>network systems</em> and <em>GPU systems</em> — building the infrastructure that lets AI agents, networks and accelerators work together efficiently.",
       "Prior to joining IIIT Delhi, I completed my B.Tech in Computer Engineering at the <strong>Zakir Husain College of Engineering &amp; Technology, AMU</strong>. During my undergraduate years, I collaborated on projects spanning explainable AI, multi-task learning, biomedical ML, and sports analytics — experiences that shaped my approach to research and my curiosity for turning ideas into working systems.",
     ],
   },
 
-  /* ---------- Research Interests (cards) ---------- */
+  /* ---------- Hero ----------
+     `roles` cycle in the animated terminal at the top of the page. */
+  hero: {
+    kicker: "Ph.D. @ NESt Lab · IIIT Delhi",
+    roles: [
+      "Agentic Systems",
+      "Network Systems",
+      "GPU & Accelerator Systems",
+      "Systems for ML",
+      "Programmable Networks",
+    ],
+    stats: [
+      { value: 1, suffix: "", label: "IEEE Publication" },
+      { value: 1, suffix: "", label: "Best Paper Award" },
+      { value: 9.03, suffix: "", label: "B.Tech CGPA", decimals: 2 },
+      { value: 50, suffix: "+", label: "Students Mentored" },
+    ],
+  },
+
+  /* ---------- Research Domains ----------
+     `viz` picks the live animation drawn on each card:
+       "agents" | "network" | "gpu" | "mlsys" | "security" | "xai"  */
   research: {
+    quote:
+      "Building the systems that let intelligent agents, networks and accelerators work together — fast, reliable and secure.",
     items: [
-      { icon: "cpu", label: "Computer Systems & Applications" },
-      { icon: "layers", label: "Systems For ML" },
-      { icon: "git-branch", label: "Systems And Security" },
-      { icon: "network", label: "Multi-Task Learning" },
-      { icon: "eye", label: "Explainable AI" },
-      { icon: "radio-tower", label: "Programmable Networks" },
+      {
+        icon: "bot",
+        viz: "agents",
+        tag: "PRIMARY",
+        label: "Agentic Systems",
+        desc: "Infrastructure for LLM agents — orchestration, tool-calling runtimes, multi-agent scheduling and serving agentic workloads efficiently at scale.",
+      },
+      {
+        icon: "network",
+        viz: "network",
+        tag: "PRIMARY",
+        label: "Network Systems",
+        desc: "Programmable data planes, in-network computing and edge networking — moving packets (and decisions) closer to where they matter.",
+      },
+      {
+        icon: "cpu",
+        viz: "gpu",
+        tag: "PRIMARY",
+        label: "GPU Systems",
+        desc: "GPU / accelerator systems for ML — kernel-level efficiency, multi-GPU communication and resource scheduling for training and inference.",
+      },
+      {
+        icon: "layers",
+        viz: "mlsys",
+        label: "Systems for ML",
+        desc: "Co-designing systems and learning — data pipelines, serving stacks and runtime optimisations for modern ML workloads.",
+      },
+      {
+        icon: "shield-check",
+        viz: "security",
+        label: "Systems & Security",
+        desc: "Securing networked and agentic systems — isolation, trust and robustness across the stack.",
+      },
+      {
+        icon: "eye",
+        viz: "xai",
+        label: "Explainable AI & MTL",
+        desc: "Interpretable, multi-task learning systems — the thread from my undergraduate research.",
+      },
     ],
   },
 
